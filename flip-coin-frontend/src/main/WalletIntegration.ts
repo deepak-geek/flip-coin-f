@@ -1,29 +1,11 @@
-/*
- * Copyright (C) 2022 - 2023 Partisia Blockchain Foundation
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
-
 import { Buffer } from "buffer";
 import PartisiaSdk from "partisia-sdk";
 import { CLIENT, resetAccount, setAccount, getContractAddress, isConnected } from "./AppState";
 import { TransactionApi } from "./client/TransactionApi";
 import { serializeTransaction } from "./client/TransactionSerialization";
-import { ConnectedWallet } from "./ConnectedWallet";
+import { ConnectedWallet } from "./types/ConnectedWallet";
 import { BigEndianByteOutput } from "@secata-public/bitmanipulation-ts";
-import { Rpc, TransactionPayload } from "./client/TransactionData";
+import { Rpc, TransactionPayload } from "./types/TransactionData";
 import { ec } from "elliptic";
 import { CryptoUtils } from "./client/CryptoUtils";
 import { deserializePetitionState } from "./contract/PetitionGenerated";
@@ -44,7 +26,7 @@ interface MetaMask {
  * Function for connecting to the MPC wallet and setting the connected wallet in the app state.
  */
 export const connectMetaMaskWalletClick = () => {
-  handleWalletConnect(connectMetaMask());
+  return handleWalletConnect(connectMetaMask());
 };
 
 /**
@@ -89,7 +71,7 @@ const connectMetaMask = async (): Promise<ConnectedWallet> => {
           },
           payload
         );
-
+        console.log(serializedTx);
         // Request signature from MetaMask
         const signature: string = await metamask.request({
           method: "wallet_invokeSnap",
@@ -104,7 +86,7 @@ const connectMetaMask = async (): Promise<ConnectedWallet> => {
             },
           },
         });
-
+       
         // Serialize transaction for sending
         const transactionPayload = Buffer.concat([Buffer.from(signature, "hex"), serializedTx]);
 
@@ -133,12 +115,12 @@ const connectMetaMask = async (): Promise<ConnectedWallet> => {
 export const connectMpcWalletClick = () => {
   // Call Partisia SDK to initiate connection
   const partisiaSdk = new PartisiaSdk();
-  handleWalletConnect(
+  return handleWalletConnect(
     partisiaSdk
       .connect({
         // eslint-disable-next-line
         permissions: ["sign" as any],
-        dappName: "Wallet integration demo",
+        dappName: "Coiun Flip",
         chainId: "Partisia Blockchain Testnet",
       })
       .then(() => {
@@ -155,6 +137,7 @@ export const connectMpcWalletClick = () => {
                 if (accountData == null) {
                   throw new Error("Account data was null");
                 }
+                console.log(accountData,connection,payload)
                 // Account data was fetched, build and serialize the transaction
                 // data.
                 const serializedTx = serializeTransaction(
@@ -165,6 +148,7 @@ export const connectMpcWalletClick = () => {
                   },
                   payload
                 );
+                console.log("first sign message",serializedTx)
                 // Ask the MPC wallet to sign and send the transaction.
                 return partisiaSdk
                   .signMessage({
@@ -179,9 +163,12 @@ export const connectMpcWalletClick = () => {
                       transactionHash: value.trxHash,
                     };
                   })
-                  .catch(() => ({
-                    putSuccessful: false,
-                  }));
+                  .catch((error) => {
+                    console.log(error);
+                    return {
+                      putSuccessful: false,
+                    }
+                  });
               });
             },
           };
@@ -191,6 +178,7 @@ export const connectMpcWalletClick = () => {
         }
       })
       .catch((error) => {
+        console.log('Error: ',error)
         // Something went wrong with the connection.
         if (error instanceof Error) {
           if (error.message === "Extension not Found") {
@@ -279,17 +267,18 @@ const handleWalletConnect = (connect: Promise<ConnectedWallet>) => {
   // Clean up state
   resetAccount();
   setConnectionStatus("Connecting...");
-  connect
+  return connect
     .then((userAccount) => {
       setAccount(userAccount);
 
       // Fix UI
-      setConnectionStatus(`Logged in: ${userAccount.address}`);
-      toggleVisibility("#wallet-connect");
-      toggleVisibility("#metamask-connect");
-      toggleVisibility("#private-key-connect");
-      toggleVisibility("#wallet-disconnect");
-      updateInteractionVisibility();
+      // setConnectionStatus(`Logged in: ${userAccount.address}`);
+      // toggleVisibility("#wallet-connect");
+      // toggleVisibility("#metamask-connect");
+      // toggleVisibility("#private-key-connect");
+      // toggleVisibility("#wallet-disconnect");
+      // updateInteractionVisibility();
+      return {data:userAccount};
     })
     .catch((error) => {
       if ("message" in error) {
@@ -297,6 +286,7 @@ const handleWalletConnect = (connect: Promise<ConnectedWallet>) => {
       } else {
         setConnectionStatus("An error occurred trying to connect wallet: " + error);
       }
+      return {error};
     });
 };
 

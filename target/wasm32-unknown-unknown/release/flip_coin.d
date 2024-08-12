@@ -1,1 +1,1 @@
-/home/gt63382/Desktop/flip-coin-f/target/wasm32-unknown-unknown/release/flip_coin.wasm: /home/gt63382/Desktop/flip-coin-f/flip-coin/README.md /home/gt63382/Desktop/flip-coin-f/flip-coin/src/lib.rs /home/gt63382/Desktop/flip-coin-f/flip-coin/src/zk_compute.rs
+/home/gt5229911/Desktop/Projects/flip-coin-f/target/wasm32-unknown-unknown/release/flip_coin.wasm: /home/gt5229911/Desktop/Projects/flip-coin-f/flip-coin/README.md /home/gt5229911/Desktop/Projects/flip-coin-f/flip-coin/src/lib.rs /home/gt5229911/Desktop/Projects/flip-coin-f/flip-coin/src/zk_compute.rs

@@ -21,7 +21,7 @@ module.exports = (env) => {
   };
 
   return merge(configuration, {
-    entry: [path("main/Main")],
+    entry: [path("main/index.tsx")],
     resolve: {
       alias: {
         process: "process/browser"
@@ -50,6 +50,19 @@ module.exports = (env) => {
               "@babel/typescript"
             ]
           }
+        },
+        {
+          test: /\.(sass|less|css)$/,
+          use: ["style-loader", "css-loader", 'sass-loader'],
+        },
+        {
+          test: /\.(png|jpg|gif)$/,
+          use: [{
+              loader: 'file-loader',
+              options: {
+                name: '/src/main/assets/[name].[ext]'
+              }
+          }]
         }
       ]
     },
