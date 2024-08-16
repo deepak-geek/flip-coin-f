@@ -30,7 +30,7 @@ const App = () => {
     const rpc = sign();
     const cost = 300;
     console.log(rpc)
-    let mainAddress = "018bc1ccbb672b87710327713c97d43204905082cb";
+    let mainAddress = "01d9f82e98a22b319aa371e752f3e0d85bd96c9545";
     let transaction = await address?.signAndSendTransaction({ address: mainAddress, rpc }, cost);
 
     console.log(transaction)
@@ -44,7 +44,7 @@ const App = () => {
       setAddress(result?.data);
       setAccount(result?.data);
       setContractAddress(result?.data?.address);
-      const accountData = await CLIENT.getAccountData(result?.data?.address);
+      const accountData = await CLIENT.getContractData(result?.data?.address);
       console.log(accountData)
     }
   }
