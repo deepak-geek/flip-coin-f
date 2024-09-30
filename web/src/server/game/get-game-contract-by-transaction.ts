@@ -25,18 +25,18 @@ export const getGameContractByTransaction = async (txHash: string) => {
   if (!response.ok || !result.data) {
     return { result: 'not-found' };
   }
+  console.log(result);
+  // const { executionSucceeded, address } =
+  //   result.data?.transaction?.event?.events[0]?.events[0]?.events[0]?.events[0];
 
-  const { executionSucceeded, address } =
-    result.data.transaction.event.events[0].events[0].events[0].events[0];
+  // if (!executionSucceeded) {
+  //   return { result: 'execution-failed' };
+  // }
 
-  if (!executionSucceeded) {
-    return { result: 'execution-failed' };
-  }
-
-  return {
-    result: 'success',
-    contract: address,
-  };
+  // return {
+  //   result: 'success',
+  //   contract: address,
+  // };
 };
 
 const getGameContractByTransactionQuery = `

@@ -4,7 +4,7 @@ import { useIdentity } from '@/components/context/identity/identity.context';
 import { flipCoinRandomGame } from '@/server/create-arcade/deploy-game';
 import { useRouter } from 'next/navigation';
 
-const ZK_CONTRACT = '032ff610b96c5cf1e8077d6b34560456f4f23a7f3d';
+const ZK_CONTRACT = '036076e6bd361e99f6a6503cfbc6c2e655257f38a1';
 
 export const FlipCoinRandomButton = () => {
   const router = useRouter();

@@ -90,6 +90,7 @@ export const payoutWinnerGame = async (
     gameMasterInit,
     gamemasterAbi
   );
+  console.log("payout winner game",deployment)
   return payloadToChainAction(account, contract, deployment, {
     cost: GAS_DEPLOYMENT_COST,
   });
