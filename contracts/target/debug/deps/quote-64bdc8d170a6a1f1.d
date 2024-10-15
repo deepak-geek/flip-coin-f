@@ -1,0 +1,11 @@
+/home/gt63382/Desktop/Flip-Project-backup/example-contracts/rust/target/debug/deps/libquote-64bdc8d170a6a1f1.rmeta: /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/lib.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/ext.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/format.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/ident_fragment.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/to_tokens.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/runtime.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/spanned.rs
+
+/home/gt63382/Desktop/Flip-Project-backup/example-contracts/rust/target/debug/deps/quote-64bdc8d170a6a1f1.d: /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/lib.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/ext.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/format.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/ident_fragment.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/to_tokens.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/runtime.rs /home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/spanned.rs
+
+/home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/lib.rs:
+/home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/ext.rs:
+/home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/format.rs:
+/home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/ident_fragment.rs:
+/home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/to_tokens.rs:
+/home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/runtime.rs:
+/home/gt63382/.cargo/registry/src/index.crates.io-6f17d22bba15001f/quote-1.0.36/src/spanned.rs:
