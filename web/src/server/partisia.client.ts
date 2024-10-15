@@ -94,7 +94,7 @@ export const getContractState = async <T = string>(
   if (!stateMapper) return data as any;
   if (data.type === 'ZERO_KNOWLEDGE') {
     let state = Buffer.from(
-      data.serializedContract.openState.openState.data,
+      data?.serializedContract?.openState?.openState.data,
       'base64',
     );
     let unserialized = data as ZkContractState<T>;
