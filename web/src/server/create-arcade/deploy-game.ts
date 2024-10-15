@@ -101,7 +101,6 @@ export const payoutApprove = async (
 ): Promise<ChainAction> => {
   const bnAmount= new BN(amount);
   const blockchainAddress= BlockchainAddress.fromString('03818281bbf60e11c2e3c6172027e8b2b793df6d12');
-  console.log(blockchainAddress,bnAmount.toNumber());
   const deployment = approve(blockchainAddress,bnAmount);
   return payloadToChainAction(account, contract, deployment, {
     cost: GAS_DEPLOYMENT_COST,

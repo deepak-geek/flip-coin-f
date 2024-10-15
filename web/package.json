@@ -5,7 +5,9 @@
   "sideEffects": false,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "export": "next export",
+    "build": "next build && npm run export && npm run build:rss",
+    "build:rss": "node ./.next/serverless/scripts/build-rss.js",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore ./src",
