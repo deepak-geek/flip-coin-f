@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const HowToPlay = () => {
@@ -5,7 +6,7 @@ const HowToPlay = () => {
         <div className='p-4 mt-5' id='howToPlay'>
             <div className='flex flex-wrap'>
                 <div className='w-2/5'>
-                    <img className='w-100' src={'https://smartcontract.life/wp-content/uploads/2018/10/mobile-crypto.png'} alt="" height={400} />
+                    <Image className='w-100' src={'/assets/wallets.png'} alt="" width={400} height={400} />
                 </div>
                 <div className='w-3/5'>
                     <div>
