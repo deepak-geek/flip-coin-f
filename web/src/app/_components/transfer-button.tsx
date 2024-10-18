@@ -23,6 +23,7 @@ export const TransferButton = () => {
       onSuccess={async(txHash) => {
         const result = await getGameContractByTransaction(txHash);
         console.log("payout winner game success",txHash, result);
+        router.push(`/`);
       }}
     >
       GET TOKEN
