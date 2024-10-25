@@ -187,6 +187,7 @@ export function bulkTransferFrom(from: BlockchainAddress, transfers: Transfer[])
 }
 
 export function approve(spender: BlockchainAddress, amount: BN): Buffer {
+  console.log(JSON.stringify(fileAbi.contract));
   const fnBuilder = new FnRpcBuilder("approve", fileAbi.contract);
   fnBuilder.addAddress(spender.asBuffer());
   fnBuilder.addU128(amount);

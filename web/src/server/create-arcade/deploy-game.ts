@@ -9,7 +9,9 @@ import {
 } from '@/contracts_gen/clients/flip-coin';
 import {
   approve,
-  transfer
+  transfer,
+  initialize as initializeToken,
+  transferFrom
 } from '@/contracts_gen/clients/token';
 import BN from "bn.js";
 import fs from 'fs';
@@ -88,7 +90,8 @@ export const payoutTransfer = async (
 ): Promise<ChainAction> => {
   const bnAmount= new BN(amount);
   const blockchainAddress= BlockchainAddress.fromString(account);
-  const deployment = transfer(blockchainAddress,bnAmount);
+  const fromBlockchainAddress= BlockchainAddress.fromString("00944a6e30da930df677f0db098f64bac1b33869ee");
+  const deployment = transferFrom(fromBlockchainAddress,blockchainAddress,bnAmount);
   return payloadToChainAction(account, contract, deployment, {
     cost: GAS_DEPLOYMENT_COST,
   });
@@ -100,7 +103,7 @@ export const payoutApprove = async (
   amount: number
 ): Promise<ChainAction> => {
   const bnAmount= new BN(amount);
-  const blockchainAddress= BlockchainAddress.fromString('03818281bbf60e11c2e3c6172027e8b2b793df6d12');
+  const blockchainAddress= BlockchainAddress.fromString(account);
   const deployment = approve(blockchainAddress,bnAmount);
   return payloadToChainAction(account, contract, deployment, {
     cost: GAS_DEPLOYMENT_COST,
@@ -109,5 +112,12 @@ export const payoutApprove = async (
 
 const getGameMasterInit = (address:BlockchainAddress): Buffer => {
   return initialize(address);
+};
+
+const getGameTokenInit = (address:BlockchainAddress): Buffer => {
+  const supply= new BN(10);
+  const blockchainAddress= BlockchainAddress.fromString('03818281bbf60e11c2e3c6172027e8b2b793df6d12');
+
+  return initializeToken("flip","$",2,supply,0,20,2,10,blockchainAddress,blockchainAddress,address);
 };
 

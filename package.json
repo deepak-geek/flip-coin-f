@@ -1,11 +1,11 @@
 {
 	"scripts": {
-		"gamemaster:build": "cargo partisia-contract build --release --manifest-path ./contracts/Cargo.toml",
-		"gamemaster:copy": "cp ./contracts/target/wasm32-unknown-unknown/release/gamemaster.{zkwa,abi} ./web/src/contracts_gen/gamemaster/",
-		"gamemaster:abi-client": "cargo partisia-contract abi codegen --ts ./contracts/target/wasm32-unknown-unknown/release/gamemaster.abi ./web/src/contracts_gen/clients/gamemaster.ts",
-		"gamemaster": "pnpm gamemaster:build && pnpm gamemaster:copy && pnpm gamemaster:abi-client",
+		"flip-coin:build": "cargo partisia-contract build --release --manifest-path ./contracts/Cargo.toml",
+		"flip-coin:copy": "cp ./contracts/target/wasm32-unknown-unknown/release/flip-coin.{zkwa,abi} ./web/src/contracts_gen/flip-coin/",
+		"flip-coin:abi-client": "cargo partisia-contract abi codegen --ts ./contracts/target/wasm32-unknown-unknown/release/flip-coin.abi ./web/src/contracts_gen/clients/flip-coin.ts",
+		"flip-coin": "pnpm flip-coin:build && pnpm flip-coin:copy && pnpm flip-coin:abi-client",
 		"zk-client:generate": "cargo partisia-contract abi codegen --ts abis/zk-contract.abi ./web/src/contracts_gen/clients/zk.ts",
-		"generate": "pnpm gamemaster && pnpm zk-client:generate"
+		"generate": "pnpm flip-coin && pnpm zk-client:generate"
 	},
 	"packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
 }
