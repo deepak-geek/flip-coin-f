@@ -7,7 +7,7 @@ import { getGameContractByTransaction } from '@/server/game/get-game-contract-by
 import confetti from 'canvas-confetti';
 import { useRouter } from 'next/navigation';
 
-const ZK_CONTRACT = '03818281bbf60e11c2e3c6172027e8b2b793df6d12';
+const ZK_CONTRACT = '03daafab238ef480e4dabe7588ac0839e0649b6c32';
 
 export const PayoutWinnerButton = () => {
   const router = useRouter();

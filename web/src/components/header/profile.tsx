@@ -24,7 +24,7 @@ export const Profile: FC = async () => {
     <div className='flex items-center gap-2'>
       <span className='flex'>
         <DollarSign /> 
-       {account?.mpc20Balances.find((m:any)=>m?.symbol=='TD')?.balance|| 0}
+       {account?.mpc20Balances.find((m:any)=>m?.symbol=='FCM')?.balance|| 0}
       </span>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

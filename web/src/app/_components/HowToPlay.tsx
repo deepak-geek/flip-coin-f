@@ -17,7 +17,7 @@ const HowToPlay = () => {
                             <li className='my-3'>Connect your Party Wallet.</li>
                             <li>Pick either heads or tails.</li>
                             <li  className='my-3'>Select your desired flip amount.</li>
-                            <li>Click &qout;Double or Nothing&qout;.</li>
+                            <li>Click &quot;Double or Nothing&quot;.</li>
                             <li  className='my-3'>Click approve and wait for coin to spin.</li>
                             <li>Congrats.</li>
                         </ol>

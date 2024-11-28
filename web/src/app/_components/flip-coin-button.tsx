@@ -6,7 +6,7 @@ import { flipCoinGame} from '@/server/create-arcade/deploy-game';
 import { getGameContractByTransaction } from '@/server/game/get-game-contract-by-transaction';
 import { useRouter } from 'next/navigation';
 
-const ZK_CONTRACT = '03818281bbf60e11c2e3c6172027e8b2b793df6d12';
+const ZK_CONTRACT = '03daafab238ef480e4dabe7588ac0839e0649b6c32';
 
 export const FlipCoinButton = () => {
   const router = useRouter();

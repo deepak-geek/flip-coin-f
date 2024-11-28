@@ -3,7 +3,7 @@ import { ChainActionButton } from '@/components/chain-action-button';
 import { useIdentity } from '@/components/context/identity/identity.context';
 import { flipCoinRandomGame } from '@/server/create-arcade/deploy-game';
 import { useRouter } from 'next/navigation';
-const ZK_CONTRACT = '03818281bbf60e11c2e3c6172027e8b2b793df6d12';
+const ZK_CONTRACT = '03daafab238ef480e4dabe7588ac0839e0649b6c32';
 
 export const FlipCoinRandomButton = () => {
   const router = useRouter();
