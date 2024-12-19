@@ -19,14 +19,6 @@ import { ChainAction } from '../chain-actions/types';
 import { payloadToChainAction } from '../partisia.client';
 import { BlockchainAddress } from '@partisiablockchain/abi-client';
 
-const flipCoinContract = fs.readFileSync(
-  process.cwd() + '/src/contracts_gen/gamemaster/flip_coin.zkwa',
-);
-
-const flipCoinAbi = fs.readFileSync(
-  process.cwd() + '/src/contracts_gen/gamemaster/flip_coin.abi',
-);
-
 const MPC_DECIMALS = 4;
 const MPC_DECIMALS_MULTIPLIER = 10 ** MPC_DECIMALS;
 
